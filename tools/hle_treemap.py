@@ -88,10 +88,16 @@ def build(d, w, h, fs=1.0, theme="light"):
     fam, cov, atteints = d["familles"], d["cov"], d["atteints"]
     tot_c = sum(v[0] for v in cov.values()); tot = sum(sum(v) for v in cov.values())
     pct = 100.0 * tot_c / tot
-    if theme == "light":
+    # Les deux premieres palettes sont celles de GitHub, pour que l'image se fonde
+    # dans la page qui l'affiche : un README porte le fond #ffffff en theme clair
+    # et #0d1117 en theme sombre, et sert la bonne version par <picture>.
+    if theme == "light":            # fond de page GitHub, theme clair
         BG, FG, SUB, TUILE, bord, vide, sep = "#ffffff", "#0f172a", "#64748b", "#f6f8fa", "#dbe1e8", "#ecf0f4", "#e6eaf0"
         txt_dark, txt_light = "#0f172a", "#ffffff"
-    else:
+    elif theme == "dark":           # fond de page GitHub, theme sombre
+        BG, FG, SUB, TUILE, bord, vide, sep = "#0d1117", "#e6edf3", "#8b949e", "#161b22", "#30363d", "#21262d", "#30363d"
+        txt_dark, txt_light = "#0d1117", "#ffffff"
+    else:                            # variables de theme de l'app (widget de chat)
         BG, FG, SUB = "none", "var(--foreground)", "var(--muted-foreground)"
         TUILE, bord, vide, sep = "var(--card)", "var(--border)", "var(--accent)", "var(--border)"
         txt_dark, txt_light = "var(--foreground)", "#ffffff"
@@ -220,8 +226,8 @@ def build(d, w, h, fs=1.0, theme="light"):
 if __name__ == "__main__":
     d = json.load(open(sys.argv[1]))
     widget = "--widget" in sys.argv
-    svg, bad = build(d, 940 if widget else 1200, 800 if widget else 820, 1.28 if widget else 1.0,
-                     "dark" if widget else "light")
+    theme = "widget" if widget else ("dark" if "--dark" in sys.argv else "light")
+    svg, bad = build(d, 940 if widget else 1200, 800 if widget else 820, 1.28 if widget else 1.0, theme)
     if len(sys.argv) > 2 and not widget:
         os.makedirs(os.path.dirname(sys.argv[2]), exist_ok=True)
         open(sys.argv[2], "w").write(svg); print("wrote", sys.argv[2], len(svg), "bytes")

@@ -4,9 +4,13 @@ How much of the firmware a statically recompiled PSP game actually needs, and ho
 much of it exists yet. Reference title: **LocoRoco** (UCES00304), brought up with
 [sp00nznet/psprecomp](https://github.com/sp00nznet/psprecomp).
 
-![HLE coverage](docs/progress/hle-coverage.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/hle-coverage-dark.png">
+  <img alt="Firmware HLE coverage: 117 of 236 imported firmware functions implemented, area proportional to imports"
+       src="docs/progress/hle-coverage.png">
+</picture>
 
-<sub>[vector version](docs/progress/hle-coverage.svg) &#183; regenerate with `tools/update.sh`</sub>
+<sub>[vector versions](docs/progress/hle-coverage.svg) &#183; regenerate with `tools/update.sh`</sub>
 
 A PSP game never touches hardware. It calls firmware entry points through its
 import table, and each of those calls is identified by a NID. So "what is still
