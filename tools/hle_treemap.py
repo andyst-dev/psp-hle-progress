@@ -18,6 +18,7 @@ legend at the bottom supplies. A tile marked as reached-by-the-run reserves a
 band on the right for the ring, so the marker never lands on a word.
 """
 import json, os, sys
+import xml.etree.ElementTree as ET
 
 VERT, ROUGE, MARQUE = "#1f9d55", "#b3402f", "#111827"
 
@@ -103,14 +104,14 @@ def build(d, w, h, fs=1.0, theme="light"):
     o.append(f'<text x="{M:.0f}" y="{46*fs:.0f}" font-size="{F(23):.1f}" font-weight="700" fill="{FG}" '
              f'letter-spacing="-0.4">LocoRoco firmware HLE coverage</text>')
     o.append(f'<text x="{M:.0f}" y="{68*fs:.0f}" font-size="{F(12.5):.1f}" fill="{SUB}">'
-             f'UCES00304 &middot; {tot} imported firmware functions &middot; tile area = number of imports</text>')
+             f'UCES00304 &#183; {tot} imported firmware functions &#183; tile area = number of imports</text>')
     o.append(f'<text x="{w-M:.0f}" y="{52*fs:.0f}" font-size="{F(34):.1f}" font-weight="700" fill="{FG}" '
              f'text-anchor="end" letter-spacing="-1">{tot_c}<tspan font-size="{F(20):.1f}" fill="{SUB}">/{tot}</tspan></text>')
     o.append(f'<text x="{w-M:.0f}" y="{72*fs:.0f}" font-size="{F(12.5):.1f}" fill="{SUB}" '
-             f'text-anchor="end">{pct:.1f}% implemented &middot; {tot-tot_c} functions to write</text>')
+             f'text-anchor="end">{pct:.1f}% implemented &#183; {tot-tot_c} functions to write</text>')
     o.append(f'<line x1="{M:.0f}" y1="{88*fs:.0f}" x2="{w-M:.0f}" y2="{88*fs:.0f}" stroke="{sep}" stroke-width="1"/>')
     o.append(f'<text x="{M:.0f}" y="{106*fs:.0f}" font-size="{F(11.5):.1f}" fill="{SUB}">'
-             f'green = implemented &nbsp;|&nbsp; red = missing &nbsp;|&nbsp; '
+             f'green = implemented &#160;|&#160; red = missing &#160;|&#160; '
              f'<tspan font-weight="600">ring</tspan> = reached by the bring-up run with no implementation '
              f'(sceUmdUser x4, sceRtc x1)</text>')
     # treemap
@@ -208,7 +209,13 @@ def build(d, w, h, fs=1.0, theme="light"):
                  f'<tspan fill="{SUB}">{idx}</tspan>{short}'
                  f'<tspan fill="{SUB}">  {c2}/{t2}</tspan></text>')
     o.append('</svg>')
-    return "\n".join(o), bad
+    texte = "\n".join(o)
+    # Un SVG est du XML : une entite HTML (`&nbsp;`, `&middot;`) le rend
+    # invalide, et un SVG invalide n'est affiche par personne -- ni GitHub, ni
+    # un rasteriseur. Mesure : c'est ce qui a fait qu'une image poussee
+    # n'apparaissait pas du tout dans un README.
+    ET.fromstring(texte)
+    return texte, bad
 
 if __name__ == "__main__":
     d = json.load(open(sys.argv[1]))

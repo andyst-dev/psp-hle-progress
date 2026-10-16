@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" width="1200" height="820" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Inter,Helvetica,sans-serif">
 <rect width="1200" height="820" fill="#ffffff"/>
 <text x="26" y="46" font-size="23.0" font-weight="700" fill="#0f172a" letter-spacing="-0.4">LocoRoco firmware HLE coverage</text>
-<text x="26" y="68" font-size="12.5" fill="#64748b">UCES00304 &middot; 236 imported firmware functions &middot; tile area = number of imports</text>
+<text x="26" y="68" font-size="12.5" fill="#64748b">UCES00304 &#183; 236 imported firmware functions &#183; tile area = number of imports</text>
 <text x="1174" y="52" font-size="34.0" font-weight="700" fill="#0f172a" text-anchor="end" letter-spacing="-1">117<tspan font-size="20.0" fill="#64748b">/236</tspan></text>
-<text x="1174" y="72" font-size="12.5" fill="#64748b" text-anchor="end">49.6% implemented &middot; 119 functions to write</text>
+<text x="1174" y="72" font-size="12.5" fill="#64748b" text-anchor="end">49.6% implemented &#183; 119 functions to write</text>
 <line x1="26" y1="88" x2="1174" y2="88" stroke="#e6eaf0" stroke-width="1"/>
-<text x="26" y="106" font-size="11.5" fill="#64748b">green = implemented &nbsp;|&nbsp; red = missing &nbsp;|&nbsp; <tspan font-weight="600">ring</tspan> = reached by the bring-up run with no implementation (sceUmdUser x4, sceRtc x1)</text>
+<text x="26" y="106" font-size="11.5" fill="#64748b">green = implemented &#160;|&#160; red = missing &#160;|&#160; <tspan font-weight="600">ring</tspan> = reached by the bring-up run with no implementation (sceUmdUser x4, sceRtc x1)</text>
 <rect x="26.00" y="118.00" width="374.56" height="552.00" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
 <text x="37.0" y="143.0" font-size="12.5" font-weight="650" fill="#0f172a">System core</text>
 <text x="389.6" y="143.0" font-size="12.0" fill="#64748b" text-anchor="end">68/77</text>

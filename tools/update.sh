@@ -28,4 +28,11 @@ set -- --module "$NAME" --outdir "$HERE" --reached "$REACHED"
 [ -n "$PSPSDK" ] && set -- "$@" --pspsdk "$PSPSDK"
 python3 "$HERE/tools/hle_coverage.py" "/tmp/emit_coverage/${NAME}_imports.c" /tmp/hle.txt "$@"
 python3 "$HERE/tools/hle_treemap.py" "$HERE/data/${NAME}-hle-cov.json" "$HERE/docs/progress/hle-coverage.svg"
+# The README shows the PNG: a raster image always renders, and the SVG is kept next to
+# it as the vector source. rsvg-convert also validates the XML on the way through.
+if command -v rsvg-convert > /dev/null; then
+  rsvg-convert -w 1800 -b white -o "$HERE/docs/progress/hle-coverage.png" "$HERE/docs/progress/hle-coverage.svg"
+else
+  echo "rsvg-convert not found: the PNG next to the SVG is now stale" >&2
+fi
 echo "updated docs/progress/hle-coverage.svg and docs/progress/hle-missing.md"
