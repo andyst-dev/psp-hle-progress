@@ -1,6 +1,6 @@
 # Missing firmware functions - locoroco
 
-**119 of 236 imported firmware functions have no HLE implementation** (117 are implemented, 49.6%). Names come from pspsdk where it declares the NID; the rest are named elsewhere (PPSSPP `Core/HLE`).
+**111 of 236 imported firmware functions have no HLE implementation** (125 are implemented, 53.0%). Names come from pspsdk where it declares the NID; the rest are named elsewhere (PPSSPP `Core/HLE`).
 
 `*` marks a function the bring-up run **reaches** without an implementation: that makes it the next thing to write, not just a gap in a list.
 
@@ -44,34 +44,6 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | sceWlanDrv | `0x0C622081` | sceWlanGetEtherAddr |
 | sceWlanDrv | `0xD7763699` | sceWlanGetSwitchState |
 
-## Video / UMD (23)
-
-| library | NID | function |
-|---|---|---|
-| sceMpeg | `0x874624D6` | sceMpegFinish |
-| sceMpeg | `0x682A619B` | sceMpegInit |
-| scePsmfPlayer | `0xF8EF08A6` | (not named in pspsdk) |
-| scePsmfPlayer | `0x1078C008` | (not named in pspsdk) |
-| scePsmfPlayer | `0x2BEB1569` | (not named in pspsdk) |
-| scePsmfPlayer | `0x235D8787` | (not named in pspsdk) |
-| scePsmfPlayer | `0x3EA82A4B` | (not named in pspsdk) |
-| scePsmfPlayer | `0x1E57A8E7` | (not named in pspsdk) |
-| scePsmfPlayer | `0x3D6D25A9` | (not named in pspsdk) |
-| scePsmfPlayer | `0xDF089680` | (not named in pspsdk) |
-| scePsmfPlayer | `0x95A84EE5` | (not named in pspsdk) |
-| scePsmfPlayer | `0xE792CD94` | (not named in pspsdk) |
-| scePsmfPlayer | `0x9B71A274` | (not named in pspsdk) |
-| scePsmfPlayer | `0xB9848A74` | (not named in pspsdk) |
-| scePsmfPlayer | `0xA0B8CA55` | (not named in pspsdk) |
-| scePsmfPlayer | `0x46F61F8B` | (not named in pspsdk) |
-| sceUmdUser | `0xC6183D47` | sceUmdActivate * |
-| sceUmdUser | `0x6AF9B50A` | sceUmdCancelWaitDriveStat |
-| sceUmdUser | `0xE83742BA` | sceUmdDeactivate |
-| sceUmdUser | `0x6B4A146C` | sceUmdGetDriveStat * |
-| sceUmdUser | `0xAEE7404D` | sceUmdRegisterUMDCallBack * |
-| sceUmdUser | `0xBD2BDE07` | sceUmdUnRegisterUMDCallBack |
-| sceUmdUser | `0x8EF08FCE` | sceUmdWaitDriveStat * |
-
 ## Save / utility (20)
 
 | library | NID | function |
@@ -97,6 +69,27 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | sceUtility | `0xD4B95FFB` | sceUtilitySavedataUpdate |
 | sceUtility | `0x64D50C56` | sceUtilityUnloadNetModule |
 
+## Video / UMD (16)
+
+| library | NID | function |
+|---|---|---|
+| sceMpeg | `0x874624D6` | sceMpegFinish |
+| sceMpeg | `0x682A619B` | sceMpegInit |
+| scePsmfPlayer | `0xF8EF08A6` | (not named in pspsdk) |
+| scePsmfPlayer | `0x1078C008` | (not named in pspsdk) |
+| scePsmfPlayer | `0x2BEB1569` | (not named in pspsdk) |
+| scePsmfPlayer | `0x235D8787` | (not named in pspsdk) |
+| scePsmfPlayer | `0x3EA82A4B` | (not named in pspsdk) |
+| scePsmfPlayer | `0x1E57A8E7` | (not named in pspsdk) |
+| scePsmfPlayer | `0x3D6D25A9` | (not named in pspsdk) |
+| scePsmfPlayer | `0xDF089680` | (not named in pspsdk) |
+| scePsmfPlayer | `0x95A84EE5` | (not named in pspsdk) |
+| scePsmfPlayer | `0xE792CD94` | (not named in pspsdk) |
+| scePsmfPlayer | `0x9B71A274` | (not named in pspsdk) |
+| scePsmfPlayer | `0xB9848A74` | (not named in pspsdk) |
+| scePsmfPlayer | `0xA0B8CA55` | (not named in pspsdk) |
+| scePsmfPlayer | `0x46F61F8B` | (not named in pspsdk) |
+
 ## Font (10)
 
 | library | NID | function |
@@ -119,7 +112,7 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | LoadExecForUser | `0xBD2F1094` | sceKernelLoadExec |
 | ModuleMgrForUser | `0x977DE386` | sceKernelLoadModule |
 | ModuleMgrForUser | `0xD675EBB8` | sceKernelSelfStopUnloadModule |
-| ThreadManForUser | `0x349D6D6C` | sceKernelCheckCallback |
+| ThreadManForUser | `0x349D6D6C` | sceKernelCheckCallback * |
 | ThreadManForUser | `0x8125221D` | sceKernelCreateMbx |
 | ThreadManForUser | `0x86255ADA` | sceKernelDeleteMbx |
 | ThreadManForUser | `0x0D81716A` | sceKernelPollMbx |
@@ -161,11 +154,10 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | IoFileMgrForUser | `0x06A70004` | sceIoMkdir |
 | IoFileMgrForUser | `0xF27A9C51` | sceIoRemove |
 
-## Misc (4)
+## Misc (3)
 
 | library | NID | function |
 |---|---|---|
 | sceImpose | `0x36AA6E91` | sceImposeSetLanguageMode |
-| scePower | `0x04B7766E` | scePowerRegisterCallback |
+| scePower | `0x04B7766E` | scePowerRegisterCallback * |
 | scePower | `0xDFA8BAF8` | scePowerUnregisterCallback |
-| sceRtc | `0x3F7AD767` | sceRtcGetCurrentTick * |

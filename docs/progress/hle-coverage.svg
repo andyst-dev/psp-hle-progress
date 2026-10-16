@@ -2,8 +2,8 @@
 <rect width="1200" height="820" fill="#ffffff"/>
 <text x="26" y="46" font-size="23.0" font-weight="700" fill="#0f172a" letter-spacing="-0.4">LocoRoco firmware HLE coverage</text>
 <text x="26" y="68" font-size="12.5" fill="#64748b">UCES00304 &#183; 236 imported firmware functions &#183; tile area = number of imports</text>
-<text x="1174" y="52" font-size="34.0" font-weight="700" fill="#0f172a" text-anchor="end" letter-spacing="-1">117<tspan font-size="20.0" fill="#64748b">/236</tspan></text>
-<text x="1174" y="72" font-size="12.5" fill="#64748b" text-anchor="end">49.6% implemented &#183; 119 functions to write</text>
+<text x="1174" y="52" font-size="34.0" font-weight="700" fill="#0f172a" text-anchor="end" letter-spacing="-1">125<tspan font-size="20.0" fill="#64748b">/236</tspan></text>
+<text x="1174" y="72" font-size="12.5" fill="#64748b" text-anchor="end">53.0% implemented &#183; 111 functions to write</text>
 <line x1="26" y1="88" x2="1174" y2="88" stroke="#e6eaf0" stroke-width="1"/>
 <text x="26" y="106" font-size="11.5" fill="#64748b">green = implemented &#160;|&#160; red = missing &#160;|&#160; <tspan font-weight="600">ring</tspan> = reached by the bring-up run with no implementation (sceUmdUser x4, sceRtc x1)</text>
 <rect x="26.00" y="118.00" width="374.56" height="552.00" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
@@ -13,6 +13,7 @@
 <rect x="31.00" y="148.00" width="364.56" height="269.09" fill="#1f9d55" rx="4"/>
 <rect x="31.00" y="417.09" width="364.56" height="33.64" fill="#b3402f" rx="4"/>
 <text x="35.0" y="165.0" font-size="11.5" font-weight="620" fill="#ffffff">ThreadMan  40/45</text>
+<circle cx="387.1" cy="299.4" r="4.2" fill="#ffffff" stroke="#111827" stroke-width="1.5"/>
 <rect x="31.00" y="450.73" width="102.53" height="167.43" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
 <rect x="31.00" y="450.73" width="102.53" height="167.43" fill="#1f9d55" rx="4"/>
 <text x="35.0" y="467.7" font-size="11.5" font-weight="620" fill="#ffffff">SysMem  7/7</text>
@@ -54,7 +55,7 @@
 <text x="535.3" y="312.6" font-size="11.5" font-weight="620" fill="#ffffff">ATRAC3+  0/9</text>
 <rect x="400.56" y="447.26" width="277.27" height="222.74" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
 <text x="411.6" y="472.3" font-size="12.5" font-weight="650" fill="#0f172a">Video / UMD</text>
-<text x="666.8" y="472.3" font-size="12.0" fill="#64748b" text-anchor="end">0/23</text>
+<text x="666.8" y="472.3" font-size="12.0" fill="#64748b" text-anchor="end">7/23</text>
 <rect x="405.56" y="477.26" width="162.69" height="188.74" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
 <rect x="405.56" y="477.26" width="162.69" height="188.74" fill="#b3402f" rx="4"/>
 <text x="409.6" y="494.3" font-size="11.5" font-weight="620" fill="#ffffff">PsmfPlayer  0/14</text>
@@ -62,9 +63,8 @@
 <rect x="568.25" y="477.26" width="104.58" height="41.94" fill="#b3402f" rx="4"/>
 <text x="572.2" y="494.3" font-size="11.5" font-weight="620" fill="#ffffff">Mpeg  0/2</text>
 <rect x="568.25" y="519.20" width="104.58" height="146.80" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
-<rect x="568.25" y="519.20" width="104.58" height="146.80" fill="#b3402f" rx="4"/>
-<text x="572.2" y="536.2" font-size="11.5" font-weight="620" fill="#ffffff">UmdUser  0/7</text>
-<circle cx="664.3" cy="592.6" r="4.2" fill="#ffffff" stroke="#111827" stroke-width="1.5"/>
+<rect x="568.25" y="519.20" width="104.58" height="146.80" fill="#1f9d55" rx="4"/>
+<text x="572.2" y="536.2" font-size="11.5" font-weight="620" fill="#ffffff">UmdUser  7/7</text>
 <rect x="677.83" y="118.00" width="165.39" height="162.35" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
 <text x="688.8" y="143.0" font-size="12.5" font-weight="650" fill="#0f172a">Font</text>
 <text x="832.2" y="143.0" font-size="12.0" fill="#64748b" text-anchor="end">0/10</text>
@@ -118,14 +118,14 @@
 <text x="914.2" y="537.2" font-size="11.5" font-weight="620" fill="#ffffff">IoFileMgr  9/14</text>
 <rect x="1114.28" y="490.16" width="59.72" height="179.84" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
 <text x="1147.7" y="580.1" font-size="10.0" font-weight="650" fill="#0f172a" text-anchor="middle" transform="rotate(-90 1147.7 580.1)">Misc</text>
-<text x="1144.1" y="663.0" font-size="11.0" fill="#64748b" text-anchor="middle">0/4</text>
+<text x="1144.1" y="663.0" font-size="11.0" fill="#64748b" text-anchor="middle">1/4</text>
 <rect x="1119.28" y="520.16" width="49.72" height="36.46" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
-<rect x="1119.28" y="520.16" width="49.72" height="36.46" fill="#b3402f" rx="4"/>
+<rect x="1119.28" y="520.16" width="49.72" height="36.46" fill="#1f9d55" rx="4"/>
 <text x="1123.3" y="537.2" font-size="12.0" font-weight="620" fill="#ffffff">Rtc</text>
-<circle cx="1160.5" cy="538.4" r="4.2" fill="#ffffff" stroke="#111827" stroke-width="1.5"/>
 <rect x="1119.28" y="556.62" width="49.72" height="72.92" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
 <rect x="1119.28" y="556.62" width="49.72" height="72.92" fill="#b3402f" rx="4"/>
-<text x="1123.3" y="573.6" font-size="12.0" font-weight="620" fill="#ffffff">Power</text>
+<text x="1147.5" y="593.1" font-size="9.8" font-weight="620" fill="#ffffff" text-anchor="middle" transform="rotate(-90 1147.5 593.1)">Power</text>
+<circle cx="1160.5" cy="593.1" r="4.2" fill="#ffffff" stroke="#111827" stroke-width="1.5"/>
 <rect x="1119.28" y="629.54" width="49.72" height="36.46" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
 <rect x="1119.28" y="629.54" width="49.72" height="36.46" fill="#b3402f" rx="4"/>
 <text x="1123.3" y="651.6" font-size="10.5" font-weight="620" fill="#ffffff">Impose</text>
@@ -151,8 +151,8 @@
 <text x="328.0" y="702.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Power<tspan fill="#64748b">  0/2</tspan></text>
 <circle cx="317.0" cy="715.0" r="4" fill="#b3402f"/>
 <text x="328.0" y="719.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Impose<tspan fill="#64748b">  0/1</tspan></text>
-<circle cx="317.0" cy="732.0" r="4" fill="#b3402f"/>
-<text x="328.0" y="736.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Rtc<tspan fill="#64748b">  0/1</tspan></text>
+<circle cx="317.0" cy="732.0" r="4" fill="#1f9d55"/>
+<text x="328.0" y="736.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Rtc<tspan fill="#64748b">  1/1</tspan></text>
 <circle cx="317.0" cy="749.0" r="4" fill="#b3402f"/>
 <text x="328.0" y="753.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>NetAdhoc<tspan fill="#64748b">  0/10</tspan></text>
 <circle cx="317.0" cy="766.0" r="4" fill="#b3402f"/>
@@ -185,8 +185,8 @@
 <text x="902.0" y="719.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>KernelLib<tspan fill="#64748b">  2/2</tspan></text>
 <circle cx="891.0" cy="732.0" r="4" fill="#b3402f"/>
 <text x="902.0" y="736.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>PsmfPlayer<tspan fill="#64748b">  0/14</tspan></text>
-<circle cx="891.0" cy="749.0" r="4" fill="#b3402f"/>
-<text x="902.0" y="753.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>UmdUser<tspan fill="#64748b">  0/7</tspan></text>
+<circle cx="891.0" cy="749.0" r="4" fill="#1f9d55"/>
+<text x="902.0" y="753.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>UmdUser<tspan fill="#64748b">  7/7</tspan></text>
 <circle cx="891.0" cy="766.0" r="4" fill="#b3402f"/>
 <text x="902.0" y="770.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Mpeg<tspan fill="#64748b">  0/2</tspan></text>
 </svg>
