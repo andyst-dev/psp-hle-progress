@@ -1,6 +1,6 @@
 # Missing firmware functions - locoroco
 
-**108 of 236 imported firmware functions have no HLE implementation** (128 are implemented, 54.2%). Names come from pspsdk where it declares the NID; the rest are named elsewhere (PPSSPP `Core/HLE`).
+**103 of 236 imported firmware functions have no HLE implementation** (133 are implemented, 56.4%). Names come from pspsdk where it declares the NID; the rest are named elsewhere (PPSSPP `Core/HLE`).
 
 `*` marks a function the bring-up run **reaches** without an implementation: that makes it the next thing to write, not just a gap in a list.
 
@@ -44,7 +44,7 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | sceWlanDrv | `0x0C622081` | sceWlanGetEtherAddr |
 | sceWlanDrv | `0xD7763699` | sceWlanGetSwitchState |
 
-## Save / utility (20)
+## Save / utility (19)
 
 | library | NID | function |
 |---|---|---|
@@ -52,7 +52,6 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | sceUtility | `0xC492F751` | sceUtilityGameSharingInitStart |
 | sceUtility | `0xEFC6F80F` | sceUtilityGameSharingShutdownStart |
 | sceUtility | `0x7853182D` | sceUtilityGameSharingUpdate |
-| sceUtility | `0xA5DA2406` | sceUtilityGetSystemParamInt |
 | sceUtility | `0x34B78343` | sceUtilityGetSystemParamString |
 | sceUtility | `0x1579A159` | sceUtilityLoadNetModule |
 | sceUtility | `0x9A1C91D7` | sceUtilityMsgDialogGetStatus |
@@ -132,17 +131,6 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | ThreadManForUser | `0xE9B3061E` | sceKernelSendMbx |
 | UtilsForUser | `0x6AD345D7` | sceKernelSetGPO |
 
-## Input / display / GE (6)
-
-| library | NID | function |
-|---|---|---|
-| sceCtrl | `0x3A622550` | sceCtrlPeekBufferPositive |
-| sceCtrl | `0x0B588501` | sceCtrlReadLatch |
-| sceDisplay | `0xEEDA2E54` | sceDisplayGetFrameBuf |
-| sceDisplay | `0x4D4E10EC` | sceDisplayIsVblank |
-| sceDisplay | `0x8EB9EC49` | sceDisplayWaitVblankCB |
-| sceDisplay | `0x984C27E7` | sceDisplayWaitVblankStart |
-
 ## Files (5)
 
 | library | NID | function |
@@ -152,6 +140,13 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | IoFileMgrForUser | `0xACE946E8` | sceIoGetstat |
 | IoFileMgrForUser | `0x06A70004` | sceIoMkdir |
 | IoFileMgrForUser | `0xF27A9C51` | sceIoRemove |
+
+## Input / display / GE (2)
+
+| library | NID | function |
+|---|---|---|
+| sceCtrl | `0x3A622550` | sceCtrlPeekBufferPositive |
+| sceDisplay | `0x984C27E7` | sceDisplayWaitVblankStart |
 
 ## Misc (1)
 

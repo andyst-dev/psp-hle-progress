@@ -1,7 +1,7 @@
 {
  "module": "locoroco",
  "imports": 236,
- "covered": 128,
+ "covered": 133,
  "familles": [
   [
    "System core",
@@ -104,8 +104,8 @@
    0
   ],
   "sceUtility": [
-   0,
-   20
+   1,
+   19
   ],
   "sceNetAdhocctl": [
    0,
@@ -148,8 +148,8 @@
    10
   ],
   "sceCtrl": [
-   3,
-   2
+   4,
+   1
   ],
   "sceSasCore": [
    17,
@@ -168,8 +168,8 @@
    1
   ],
   "sceDisplay": [
-   3,
-   4
+   6,
+   1
   ],
   "InterruptManager": [
    3,
@@ -212,7 +212,6 @@
   "sceUmdUser": [],
   "sceUtility": [
    "4DB1E739",
-   "A5DA2406",
    "1579A159",
    "64D50C56",
    "34B78343",
@@ -298,8 +297,7 @@
    "5E3D4B79"
   ],
   "sceCtrl": [
-   "3A622550",
-   "0B588501"
+   "3A622550"
   ],
   "sceSasCore": [],
   "sceAtrac3plus": [
@@ -320,9 +318,6 @@
    "36AA6E91"
   ],
   "sceDisplay": [
-   "8EB9EC49",
-   "4D4E10EC",
-   "EEDA2E54",
    "984C27E7"
   ],
   "InterruptManager": [],

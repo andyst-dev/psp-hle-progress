@@ -2,8 +2,8 @@
 <rect width="1200" height="820" fill="#ffffff"/>
 <text x="26" y="46" font-size="23.0" font-weight="700" fill="#0f172a" letter-spacing="-0.4">LocoRoco firmware HLE coverage</text>
 <text x="26" y="68" font-size="12.5" fill="#64748b">UCES00304 &#183; 236 imported firmware functions &#183; tile area = number of imports</text>
-<text x="1174" y="52" font-size="34.0" font-weight="700" fill="#0f172a" text-anchor="end" letter-spacing="-1">128<tspan font-size="20.0" fill="#64748b">/236</tspan></text>
-<text x="1174" y="72" font-size="12.5" fill="#64748b" text-anchor="end">54.2% implemented &#183; 108 functions to write</text>
+<text x="1174" y="52" font-size="34.0" font-weight="700" fill="#0f172a" text-anchor="end" letter-spacing="-1">133<tspan font-size="20.0" fill="#64748b">/236</tspan></text>
+<text x="1174" y="72" font-size="12.5" fill="#64748b" text-anchor="end">56.4% implemented &#183; 103 functions to write</text>
 <line x1="26" y1="88" x2="1174" y2="88" stroke="#e6eaf0" stroke-width="1"/>
 <text x="26" y="106" font-size="11.5" fill="#64748b">green = implemented &#160;|&#160; red = missing &#160;|&#160; <tspan font-weight="600">ring</tspan> = reached by the bring-up run with no implementation (sceUmdUser x4, sceRtc x1)</text>
 <rect x="26.00" y="118.00" width="374.56" height="552.00" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
@@ -72,10 +72,11 @@
 <text x="686.8" y="165.0" font-size="11.5" font-weight="620" fill="#ffffff">LibFont  0/10</text>
 <rect x="843.22" y="118.00" width="330.78" height="162.35" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
 <text x="854.2" y="143.0" font-size="12.5" font-weight="650" fill="#0f172a">Save / utility</text>
-<text x="1163.0" y="143.0" font-size="12.0" fill="#64748b" text-anchor="end">0/20</text>
+<text x="1163.0" y="143.0" font-size="12.0" fill="#64748b" text-anchor="end">1/20</text>
 <rect x="848.22" y="148.00" width="320.78" height="128.35" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
-<rect x="848.22" y="148.00" width="320.78" height="128.35" fill="#b3402f" rx="4"/>
-<text x="852.2" y="165.0" font-size="11.5" font-weight="620" fill="#ffffff">Utility  0/20</text>
+<rect x="848.22" y="148.00" width="320.78" height="6.42" fill="#1f9d55" rx="4"/>
+<rect x="848.22" y="154.42" width="320.78" height="121.94" fill="#b3402f" rx="4"/>
+<text x="852.2" y="165.0" font-size="11.5" font-weight="620" fill="#0f172a">Utility  1/20</text>
 <rect x="677.83" y="280.35" width="227.41" height="389.65" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
 <text x="688.8" y="305.4" font-size="12.5" font-weight="650" fill="#0f172a">Network</text>
 <text x="894.2" y="305.4" font-size="12.0" fill="#64748b" text-anchor="end">0/33</text>
@@ -96,18 +97,18 @@
 <text x="820.6" y="627.0" font-size="12.0" font-weight="620" fill="#ffffff">WlanDrv</text>
 <rect x="905.24" y="280.35" width="268.76" height="209.81" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
 <text x="916.2" y="305.4" font-size="12.5" font-weight="650" fill="#0f172a">Input / display / GE</text>
-<text x="1163.0" y="305.4" font-size="12.0" fill="#64748b" text-anchor="end">15/21</text>
+<text x="1163.0" y="305.4" font-size="12.0" fill="#64748b" text-anchor="end">19/21</text>
 <rect x="910.24" y="310.35" width="110.90" height="175.81" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
 <rect x="910.24" y="310.35" width="110.90" height="175.81" fill="#1f9d55" rx="4"/>
 <text x="914.2" y="327.4" font-size="11.5" font-weight="620" fill="#ffffff">Ge  9/9</text>
 <rect x="1021.14" y="310.35" width="147.86" height="102.56" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
-<rect x="1021.14" y="310.35" width="147.86" height="43.95" fill="#1f9d55" rx="4"/>
-<rect x="1021.14" y="354.31" width="147.86" height="58.60" fill="#b3402f" rx="4"/>
-<text x="1025.1" y="327.4" font-size="11.5" font-weight="620" fill="#0f172a">Display  3/7</text>
+<rect x="1021.14" y="310.35" width="147.86" height="87.90" fill="#1f9d55" rx="4"/>
+<rect x="1021.14" y="398.26" width="147.86" height="14.65" fill="#b3402f" rx="4"/>
+<text x="1025.1" y="327.4" font-size="11.5" font-weight="620" fill="#ffffff">Display  6/7</text>
 <rect x="1021.14" y="412.91" width="147.86" height="73.25" fill="#ecf0f4" stroke="#dbe1e8" stroke-width="0.7" rx="4"/>
-<rect x="1021.14" y="412.91" width="147.86" height="43.95" fill="#1f9d55" rx="4"/>
-<rect x="1021.14" y="456.86" width="147.86" height="29.30" fill="#b3402f" rx="4"/>
-<text x="1025.1" y="429.9" font-size="11.5" font-weight="620" fill="#ffffff">Ctrl  3/5</text>
+<rect x="1021.14" y="412.91" width="147.86" height="58.60" fill="#1f9d55" rx="4"/>
+<rect x="1021.14" y="471.51" width="147.86" height="14.65" fill="#b3402f" rx="4"/>
+<text x="1025.1" y="429.9" font-size="11.5" font-weight="620" fill="#ffffff">Ctrl  4/5</text>
 <rect x="905.24" y="490.16" width="209.03" height="179.84" fill="#f6f8fa" stroke="#dbe1e8" stroke-width="1.2" rx="7"/>
 <text x="916.2" y="515.2" font-size="12.5" font-weight="650" fill="#0f172a">Files</text>
 <text x="1103.3" y="515.2" font-size="12.0" fill="#64748b" text-anchor="end">9/14</text>
@@ -142,9 +143,9 @@
 <circle cx="30.0" cy="783.0" r="4" fill="#1f9d55"/>
 <text x="41.0" y="787.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Ge<tspan fill="#64748b">  9/9</tspan></text>
 <circle cx="30.0" cy="800.0" r="4" fill="#c9a227"/>
-<text x="41.0" y="804.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Display<tspan fill="#64748b">  3/7</tspan></text>
+<text x="41.0" y="804.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Display<tspan fill="#64748b">  6/7</tspan></text>
 <circle cx="30.0" cy="817.0" r="4" fill="#c9a227"/>
-<text x="41.0" y="821.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Ctrl<tspan fill="#64748b">  3/5</tspan></text>
+<text x="41.0" y="821.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Ctrl<tspan fill="#64748b">  4/5</tspan></text>
 <circle cx="317.0" cy="698.0" r="4" fill="#1f9d55"/>
 <text x="328.0" y="702.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Power<tspan fill="#64748b">  2/2</tspan></text>
 <circle cx="317.0" cy="715.0" r="4" fill="#b3402f"/>
@@ -161,8 +162,8 @@
 <text x="328.0" y="804.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Net<tspan fill="#64748b">  0/3</tspan></text>
 <circle cx="317.0" cy="817.0" r="4" fill="#b3402f"/>
 <text x="328.0" y="821.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>WlanDrv<tspan fill="#64748b">  0/2</tspan></text>
-<circle cx="604.0" cy="698.0" r="4" fill="#b3402f"/>
-<text x="615.0" y="702.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Utility<tspan fill="#64748b">  0/20</tspan></text>
+<circle cx="604.0" cy="698.0" r="4" fill="#c9a227"/>
+<text x="615.0" y="702.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>Utility<tspan fill="#64748b">  1/20</tspan></text>
 <circle cx="604.0" cy="715.0" r="4" fill="#c9a227"/>
 <text x="615.0" y="719.0" font-size="10.5" fill="#0f172a"><tspan fill="#64748b"></tspan>ThreadMan<tspan fill="#64748b">  41/45</tspan></text>
 <circle cx="604.0" cy="732.0" r="4" fill="#c9a227"/>
