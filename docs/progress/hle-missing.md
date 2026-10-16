@@ -1,6 +1,6 @@
 # Missing firmware functions - locoroco
 
-**103 of 236 imported firmware functions have no HLE implementation** (133 are implemented, 56.4%). Names come from pspsdk where it declares the NID; the rest are named elsewhere (PPSSPP `Core/HLE`).
+**101 of 236 imported firmware functions have no HLE implementation** (135 are implemented, 57.2%). Names come from pspsdk where it declares the NID; the rest are named elsewhere (PPSSPP `Core/HLE`).
 
 `*` marks a function the bring-up run **reaches** without an implementation: that makes it the next thing to write, not just a gap in a list.
 
@@ -118,13 +118,11 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | sceAtrac3plus | `0x0E2A73AB` | sceAtracSetData |
 | sceAtrac3plus | `0x868120B5` | sceAtracSetLoopNum |
 
-## System core (8)
+## System core (6)
 
 | library | NID | function |
 |---|---|---|
 | LoadExecForUser | `0xBD2F1094` | sceKernelLoadExec |
-| ModuleMgrForUser | `0x977DE386` | sceKernelLoadModule |
-| ModuleMgrForUser | `0xD675EBB8` | sceKernelSelfStopUnloadModule |
 | ThreadManForUser | `0x8125221D` | sceKernelCreateMbx |
 | ThreadManForUser | `0x86255ADA` | sceKernelDeleteMbx |
 | ThreadManForUser | `0x0D81716A` | sceKernelPollMbx |

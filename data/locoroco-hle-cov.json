@@ -1,7 +1,7 @@
 {
  "module": "locoroco",
  "imports": 236,
- "covered": 133,
+ "covered": 135,
  "familles": [
   [
    "System core",
@@ -184,8 +184,8 @@
    14
   ],
   "ModuleMgrForUser": [
-   5,
-   2
+   7,
+   0
   ],
   "StdioForUser": [
    3,
@@ -338,10 +338,7 @@
    "A0B8CA55",
    "46F61F8B"
   ],
-  "ModuleMgrForUser": [
-   "D675EBB8",
-   "977DE386"
-  ],
+  "ModuleMgrForUser": [],
   "StdioForUser": [],
   "sceMpeg": [
    "682A619B",
