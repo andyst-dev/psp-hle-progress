@@ -1,0 +1,392 @@
+{
+ "module": "locoroco",
+ "imports": 236,
+ "covered": 117,
+ "familles": [
+  [
+   "System core",
+   [
+    "ThreadManForUser",
+    "SysMemUserForUser",
+    "Kernel_Library",
+    "UtilsForUser",
+    "InterruptManager",
+    "ModuleMgrForUser",
+    "LoadExecForUser",
+    "sceSuspendForUser",
+    "StdioForUser"
+   ]
+  ],
+  [
+   "Audio",
+   [
+    "sceSasCore",
+    "sceAudio",
+    "sceAtrac3plus"
+   ]
+  ],
+  [
+   "Video / UMD",
+   [
+    "scePsmfPlayer",
+    "sceMpeg",
+    "sceUmdUser"
+   ]
+  ],
+  [
+   "Font",
+   [
+    "sceLibFont"
+   ]
+  ],
+  [
+   "Save / utility",
+   [
+    "sceUtility"
+   ]
+  ],
+  [
+   "Network",
+   [
+    "sceNetAdhoc",
+    "sceNetAdhocMatching",
+    "sceNetAdhocctl",
+    "sceNet",
+    "sceWlanDrv"
+   ]
+  ],
+  [
+   "Input / display / GE",
+   [
+    "sceGe_user",
+    "sceDisplay",
+    "sceCtrl"
+   ]
+  ],
+  [
+   "Files",
+   [
+    "IoFileMgrForUser"
+   ]
+  ],
+  [
+   "Misc",
+   [
+    "sceRtc",
+    "scePower",
+    "sceImpose"
+   ]
+  ]
+ ],
+ "cov": {
+  "ThreadManForUser": [
+   40,
+   5
+  ],
+  "Kernel_Library": [
+   2,
+   0
+  ],
+  "SysMemUserForUser": [
+   7,
+   0
+  ],
+  "UtilsForUser": [
+   3,
+   1
+  ],
+  "sceGe_user": [
+   9,
+   0
+  ],
+  "sceUmdUser": [
+   0,
+   7
+  ],
+  "sceUtility": [
+   0,
+   20
+  ],
+  "sceNetAdhocctl": [
+   0,
+   8
+  ],
+  "sceWlanDrv": [
+   0,
+   2
+  ],
+  "sceNetAdhoc": [
+   0,
+   10
+  ],
+  "sceAudio": [
+   8,
+   0
+  ],
+  "sceNet": [
+   0,
+   3
+  ],
+  "IoFileMgrForUser": [
+   9,
+   5
+  ],
+  "sceSuspendForUser": [
+   3,
+   0
+  ],
+  "scePower": [
+   0,
+   2
+  ],
+  "sceLibFont": [
+   0,
+   10
+  ],
+  "sceNetAdhocMatching": [
+   0,
+   10
+  ],
+  "sceCtrl": [
+   3,
+   2
+  ],
+  "sceSasCore": [
+   17,
+   0
+  ],
+  "sceAtrac3plus": [
+   0,
+   9
+  ],
+  "LoadExecForUser": [
+   2,
+   1
+  ],
+  "sceImpose": [
+   0,
+   1
+  ],
+  "sceDisplay": [
+   3,
+   4
+  ],
+  "InterruptManager": [
+   3,
+   0
+  ],
+  "sceRtc": [
+   0,
+   1
+  ],
+  "scePsmfPlayer": [
+   0,
+   14
+  ],
+  "ModuleMgrForUser": [
+   5,
+   2
+  ],
+  "StdioForUser": [
+   3,
+   0
+  ],
+  "sceMpeg": [
+   0,
+   2
+  ]
+ },
+ "missing": {
+  "ThreadManForUser": [
+   "0D81716A",
+   "86255ADA",
+   "349D6D6C",
+   "8125221D",
+   "E9B3061E"
+  ],
+  "Kernel_Library": [],
+  "SysMemUserForUser": [],
+  "UtilsForUser": [
+   "6AD345D7"
+  ],
+  "sceGe_user": [],
+  "sceUmdUser": [
+   "E83742BA",
+   "6B4A146C",
+   "BD2BDE07",
+   "8EF08FCE",
+   "C6183D47",
+   "AEE7404D",
+   "6AF9B50A"
+  ],
+  "sceUtility": [
+   "4DB1E739",
+   "A5DA2406",
+   "1579A159",
+   "64D50C56",
+   "34B78343",
+   "2AD8E239",
+   "50C4CD57",
+   "8874DBE0",
+   "D4B95FFB",
+   "9790B33C",
+   "6332AA39",
+   "91E70E35",
+   "F88155F6",
+   "9A1C91D7",
+   "95FC253B",
+   "67AF3428",
+   "C492F751",
+   "946963F3",
+   "7853182D",
+   "EFC6F80F"
+  ],
+  "sceNetAdhocctl": [
+   "75ECD386",
+   "8DB83FDC",
+   "E26F226E",
+   "20B317A0",
+   "6402490B",
+   "34401D65",
+   "9D689E13",
+   "0AD043ED"
+  ],
+  "sceWlanDrv": [
+   "D7763699",
+   "0C622081"
+  ],
+  "sceNetAdhoc": [
+   "8BEA2B3E",
+   "E1D621D7",
+   "A62C6F57",
+   "157E6225",
+   "4DA4C788",
+   "9AC2EEAC",
+   "E08BDAC1",
+   "877F6D66",
+   "9DF81198",
+   "FC6FC07B"
+  ],
+  "sceAudio": [],
+  "sceNet": [
+   "39AF39A6",
+   "281928A9",
+   "50647530"
+  ],
+  "IoFileMgrForUser": [
+   "06A70004",
+   "54F5FB11",
+   "B8A740F4",
+   "ACE946E8",
+   "F27A9C51"
+  ],
+  "sceSuspendForUser": [],
+  "scePower": [
+   "DFA8BAF8",
+   "04B7766E"
+  ],
+  "sceLibFont": [
+   "574B6FBC",
+   "3AEA8CB6",
+   "BB8E7FE6",
+   "0DA7535E",
+   "A834319D",
+   "27F6E642",
+   "BC75D85B",
+   "67F17ED7",
+   "DCC80C2F",
+   "980F4895"
+  ],
+  "sceNetAdhocMatching": [
+   "32B156B3",
+   "F16EAF4F",
+   "7945ECDA",
+   "B58E61B7",
+   "EA3C6108",
+   "2A2A1E07",
+   "CA5EDA6F",
+   "93EF3843",
+   "8F58BEDF",
+   "5E3D4B79"
+  ],
+  "sceCtrl": [
+   "3A622550",
+   "0B588501"
+  ],
+  "sceSasCore": [],
+  "sceAtrac3plus": [
+   "61EB33F5",
+   "780F88D1",
+   "0E2A73AB",
+   "868120B5",
+   "36FAABFB",
+   "5D268707",
+   "7DB31251",
+   "6A8C3CD5",
+   "9AE849A7"
+  ],
+  "LoadExecForUser": [
+   "BD2F1094"
+  ],
+  "sceImpose": [
+   "36AA6E91"
+  ],
+  "sceDisplay": [
+   "8EB9EC49",
+   "4D4E10EC",
+   "EEDA2E54",
+   "984C27E7"
+  ],
+  "InterruptManager": [],
+  "sceRtc": [
+   "3F7AD767"
+  ],
+  "scePsmfPlayer": [
+   "F8EF08A6",
+   "1078C008",
+   "2BEB1569",
+   "235D8787",
+   "3EA82A4B",
+   "1E57A8E7",
+   "3D6D25A9",
+   "DF089680",
+   "95A84EE5",
+   "E792CD94",
+   "9B71A274",
+   "B9848A74",
+   "A0B8CA55",
+   "46F61F8B"
+  ],
+  "ModuleMgrForUser": [
+   "D675EBB8",
+   "977DE386"
+  ],
+  "StdioForUser": [],
+  "sceMpeg": [
+   "682A619B",
+   "874624D6"
+  ]
+ },
+ "atteints": [
+  [
+   "sceRtc",
+   "3F7AD767"
+  ],
+  [
+   "sceUmdUser",
+   "6B4A146C"
+  ],
+  [
+   "sceUmdUser",
+   "8EF08FCE"
+  ],
+  [
+   "sceUmdUser",
+   "AEE7404D"
+  ],
+  [
+   "sceUmdUser",
+   "C6183D47"
+  ]
+ ]
+}
