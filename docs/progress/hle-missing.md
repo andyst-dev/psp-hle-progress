@@ -1,6 +1,6 @@
 # Missing firmware functions - locoroco
 
-**111 of 236 imported firmware functions have no HLE implementation** (125 are implemented, 53.0%). Names come from pspsdk where it declares the NID; the rest are named elsewhere (PPSSPP `Core/HLE`).
+**108 of 236 imported firmware functions have no HLE implementation** (128 are implemented, 54.2%). Names come from pspsdk where it declares the NID; the rest are named elsewhere (PPSSPP `Core/HLE`).
 
 `*` marks a function the bring-up run **reaches** without an implementation: that makes it the next thing to write, not just a gap in a list.
 
@@ -105,20 +105,6 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | sceLibFont | `0xA834319D` | sceFontOpen |
 | sceLibFont | `0xBB8E7FE6` | sceFontOpenUserMemory |
 
-## System core (9)
-
-| library | NID | function |
-|---|---|---|
-| LoadExecForUser | `0xBD2F1094` | sceKernelLoadExec |
-| ModuleMgrForUser | `0x977DE386` | sceKernelLoadModule |
-| ModuleMgrForUser | `0xD675EBB8` | sceKernelSelfStopUnloadModule |
-| ThreadManForUser | `0x349D6D6C` | sceKernelCheckCallback * |
-| ThreadManForUser | `0x8125221D` | sceKernelCreateMbx |
-| ThreadManForUser | `0x86255ADA` | sceKernelDeleteMbx |
-| ThreadManForUser | `0x0D81716A` | sceKernelPollMbx |
-| ThreadManForUser | `0xE9B3061E` | sceKernelSendMbx |
-| UtilsForUser | `0x6AD345D7` | sceKernelSetGPO |
-
 ## Audio (9)
 
 | library | NID | function |
@@ -132,6 +118,19 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | sceAtrac3plus | `0x61EB33F5` | sceAtracReleaseAtracID |
 | sceAtrac3plus | `0x0E2A73AB` | sceAtracSetData |
 | sceAtrac3plus | `0x868120B5` | sceAtracSetLoopNum |
+
+## System core (8)
+
+| library | NID | function |
+|---|---|---|
+| LoadExecForUser | `0xBD2F1094` | sceKernelLoadExec |
+| ModuleMgrForUser | `0x977DE386` | sceKernelLoadModule |
+| ModuleMgrForUser | `0xD675EBB8` | sceKernelSelfStopUnloadModule |
+| ThreadManForUser | `0x8125221D` | sceKernelCreateMbx |
+| ThreadManForUser | `0x86255ADA` | sceKernelDeleteMbx |
+| ThreadManForUser | `0x0D81716A` | sceKernelPollMbx |
+| ThreadManForUser | `0xE9B3061E` | sceKernelSendMbx |
+| UtilsForUser | `0x6AD345D7` | sceKernelSetGPO |
 
 ## Input / display / GE (6)
 
@@ -154,10 +153,8 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | IoFileMgrForUser | `0x06A70004` | sceIoMkdir |
 | IoFileMgrForUser | `0xF27A9C51` | sceIoRemove |
 
-## Misc (3)
+## Misc (1)
 
 | library | NID | function |
 |---|---|---|
 | sceImpose | `0x36AA6E91` | sceImposeSetLanguageMode |
-| scePower | `0x04B7766E` | scePowerRegisterCallback * |
-| scePower | `0xDFA8BAF8` | scePowerUnregisterCallback |

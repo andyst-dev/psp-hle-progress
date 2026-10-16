@@ -1,7 +1,7 @@
 {
  "module": "locoroco",
  "imports": 236,
- "covered": 125,
+ "covered": 128,
  "familles": [
   [
    "System core",
@@ -80,8 +80,8 @@
  ],
  "cov": {
   "ThreadManForUser": [
-   40,
-   5
+   41,
+   4
   ],
   "Kernel_Library": [
    2,
@@ -136,8 +136,8 @@
    0
   ],
   "scePower": [
-   0,
-   2
+   2,
+   0
   ],
   "sceLibFont": [
    0,
@@ -200,7 +200,6 @@
   "ThreadManForUser": [
    "0D81716A",
    "86255ADA",
-   "349D6D6C",
    "8125221D",
    "E9B3061E"
   ],
@@ -273,10 +272,7 @@
    "F27A9C51"
   ],
   "sceSuspendForUser": [],
-  "scePower": [
-   "DFA8BAF8",
-   "04B7766E"
-  ],
+  "scePower": [],
   "sceLibFont": [
    "574B6FBC",
    "3AEA8CB6",
@@ -357,14 +353,5 @@
    "874624D6"
   ]
  },
- "atteints": [
-  [
-   "ThreadManForUser",
-   "349D6D6C"
-  ],
-  [
-   "scePower",
-   "04B7766E"
-  ]
- ]
+ "atteints": []
 }
