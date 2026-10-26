@@ -1,7 +1,498 @@
 {
  "module": "locoroco",
  "imports": 236,
- "covered": 135,
+ "covered": 120,
+ "metric": "registered_hle_handler_availability",
+ "source": {
+  "revision": "5ca18fac1691a4a7b40ae683dabdf72a5703d2b8",
+  "label": "Upstream main"
+ },
+ "observations": {
+  "runtime_revision": "cb43d7a042fb665eb685b87411ba5a36b82b2115",
+  "rate_limited": true
+ },
+ "registered": {
+  "293B45B8": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelGetThreadId"
+  },
+  "092968F4": {
+   "library": "Kernel_Library",
+   "name": "sceKernelCpuSuspendIntr"
+  },
+  "5F10D406": {
+   "library": "Kernel_Library",
+   "name": "sceKernelCpuResumeIntr"
+  },
+  "3F53E640": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelSignalSema"
+  },
+  "237DBD4F": {
+   "library": "SysMemUserForUser",
+   "name": "sceKernelAllocPartitionMemory"
+  },
+  "9D9A5BA1": {
+   "library": "SysMemUserForUser",
+   "name": "sceKernelGetBlockHeadAddr"
+  },
+  "4E3A1105": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelWaitSema"
+  },
+  "B435DEC5": {
+   "library": "UtilsForUser",
+   "name": "sceKernelDcacheWritebackInvalidateAll"
+  },
+  "E0D68148": {
+   "library": "sceGe_user",
+   "name": "sceGeListUpdateStallAddr"
+  },
+  "AB49E76A": {
+   "library": "sceGe_user",
+   "name": "sceGeListEnQueue"
+  },
+  "D6DA4BA1": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelCreateSema"
+  },
+  "58B1F937": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelPollSema"
+  },
+  "EF9E4C70": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelDeleteEventFlag"
+  },
+  "28B6489C": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelDeleteSema"
+  },
+  "EDBA5844": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelDeleteCallback"
+  },
+  "37FB5C42": {
+   "library": "UtilsForUser",
+   "name": "sceKernelGetGPI"
+  },
+  "82BC5777": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelGetSystemTimeWide"
+  },
+  "B011922F": {
+   "library": "sceAudio",
+   "name": "sceAudioGetChannelRestLength"
+  },
+  "D59EAD2F": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelWakeupThread"
+  },
+  "68DA9E36": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelDelayThreadCB"
+  },
+  "13A5ABEF": {
+   "library": "SysMemUserForUser",
+   "name": "sceKernelPrintf"
+  },
+  "779103A0": {
+   "library": "IoFileMgrForUser",
+   "name": "sceIoRename"
+  },
+  "109F50BC": {
+   "library": "IoFileMgrForUser",
+   "name": "sceIoOpen"
+  },
+  "B29DDF9C": {
+   "library": "IoFileMgrForUser",
+   "name": "sceIoDopen"
+  },
+  "E3EB004C": {
+   "library": "IoFileMgrForUser",
+   "name": "sceIoDread"
+  },
+  "EB092469": {
+   "library": "IoFileMgrForUser",
+   "name": "sceIoDclose"
+  },
+  "EADB1BD7": {
+   "library": "sceSuspendForUser",
+   "name": "sceKernelPowerLock"
+  },
+  "42EC03AC": {
+   "library": "IoFileMgrForUser",
+   "name": "sceIoWrite"
+  },
+  "810C4BC3": {
+   "library": "IoFileMgrForUser",
+   "name": "sceIoClose"
+  },
+  "3AEE7261": {
+   "library": "sceSuspendForUser",
+   "name": "sceKernelPowerUnlock"
+  },
+  "CEADEB47": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelDelayThread"
+  },
+  "DFA8BAF8": {
+   "library": "scePower",
+   "name": "scePowerUnregisterCallback"
+  },
+  "349D6D6C": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelCheckCallback"
+  },
+  "DB738F35": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelGetSystemTime"
+  },
+  "E81CAF8F": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelCreateCallback"
+  },
+  "04B7766E": {
+   "library": "scePower",
+   "name": "scePowerRegisterCallback"
+  },
+  "79D1C3FA": {
+   "library": "UtilsForUser",
+   "name": "sceKernelDcacheWritebackAll"
+  },
+  "E47E40E4": {
+   "library": "sceGe_user",
+   "name": "sceGeEdramGetAddr"
+  },
+  "402FCF22": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelWaitEventFlag"
+  },
+  "30FD48F0": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelPollEventFlag"
+  },
+  "55C20A00": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelCreateEventFlag"
+  },
+  "9944F31F": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelSuspendThread"
+  },
+  "75156E8F": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelResumeThread"
+  },
+  "D5A229C9": {
+   "library": "sceSasCore",
+   "name": "__sceSasRevEVOL"
+  },
+  "F983B186": {
+   "library": "sceSasCore",
+   "name": "__sceSasRevVON"
+  },
+  "42778A9F": {
+   "library": "sceSasCore",
+   "name": "__sceSasInit"
+  },
+  "AD84D37F": {
+   "library": "sceSasCore",
+   "name": "__sceSasSetPitch"
+  },
+  "CBCD4F79": {
+   "library": "sceSasCore",
+   "name": "__sceSasSetSimpleADSR"
+  },
+  "440CA7D8": {
+   "library": "sceSasCore",
+   "name": "__sceSasSetVolume"
+  },
+  "9FA03CD3": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelDeleteThread"
+  },
+  "446D8DE6": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelCreateThread"
+  },
+  "F475845D": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelStartThread"
+  },
+  "6FC46853": {
+   "library": "sceAudio",
+   "name": "sceAudioChRelease"
+  },
+  "278C0DF5": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelWaitThreadEnd"
+  },
+  "5EC81C55": {
+   "library": "sceAudio",
+   "name": "sceAudioChReserve"
+  },
+  "1D371B8A": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelCancelVpl"
+  },
+  "B736E9FF": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelFreeVpl"
+  },
+  "89B3D48C": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelDeleteVpl"
+  },
+  "1C0D95A6": {
+   "library": "sceGe_user",
+   "name": "sceGeListEnQueueHead"
+  },
+  "289D82FE": {
+   "library": "sceDisplay",
+   "name": "sceDisplaySetFrameBuf"
+  },
+  "1F803938": {
+   "library": "sceCtrl",
+   "name": "sceCtrlReadBufferPositive"
+  },
+  "CA04A2B9": {
+   "library": "InterruptManager",
+   "name": "sceKernelRegisterSubIntrHandler"
+  },
+  "FB8E22EC": {
+   "library": "InterruptManager",
+   "name": "sceKernelEnableSubIntr"
+  },
+  "D61E6961": {
+   "library": "InterruptManager",
+   "name": "sceKernelReleaseSubIntrHandler"
+  },
+  "A291F107": {
+   "library": "SysMemUserForUser",
+   "name": "sceKernelMaxFreeMemSize"
+  },
+  "56C039B5": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelCreateVpl"
+  },
+  "39810265": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelReferVplStatus"
+  },
+  "EC0A693F": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelAllocateVplCB"
+  },
+  "1F6752AD": {
+   "library": "sceGe_user",
+   "name": "sceGeEdramGetSize"
+  },
+  "0E20F177": {
+   "library": "sceDisplay",
+   "name": "sceDisplaySetMode"
+  },
+  "A4FC06A4": {
+   "library": "sceGe_user",
+   "name": "sceGeSetCallback"
+  },
+  "03444EB4": {
+   "library": "sceGe_user",
+   "name": "sceGeListSync"
+  },
+  "B287BD61": {
+   "library": "sceGe_user",
+   "name": "sceGeDrawSync"
+  },
+  "05DB22CE": {
+   "library": "sceGe_user",
+   "name": "sceGeUnsetCallback"
+  },
+  "AA73C935": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelExitThread"
+  },
+  "F0A26395": {
+   "library": "ModuleMgrForUser",
+   "name": "sceKernelGetModuleId"
+  },
+  "D1FF982A": {
+   "library": "ModuleMgrForUser",
+   "name": "sceKernelStopModule"
+  },
+  "2E0911AA": {
+   "library": "ModuleMgrForUser",
+   "name": "sceKernelUnloadModule"
+  },
+  "71BC9871": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelChangeThreadPriority"
+  },
+  "EA748E31": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelChangeCurrentThreadAttr"
+  },
+  "6A2774F3": {
+   "library": "sceCtrl",
+   "name": "sceCtrlSetSamplingCycle"
+  },
+  "1F4011E6": {
+   "library": "sceCtrl",
+   "name": "sceCtrlSetSamplingMode"
+  },
+  "50F0C1EC": {
+   "library": "ModuleMgrForUser",
+   "name": "sceKernelStartModule"
+  },
+  "F78BA90A": {
+   "library": "StdioForUser",
+   "name": "sceKernelStderr"
+  },
+  "172D316E": {
+   "library": "StdioForUser",
+   "name": "sceKernelStdin"
+  },
+  "A6BAB2E9": {
+   "library": "StdioForUser",
+   "name": "sceKernelStdout"
+  },
+  "27EB27B8": {
+   "library": "IoFileMgrForUser",
+   "name": "sceIoLseek"
+  },
+  "6A638D83": {
+   "library": "IoFileMgrForUser",
+   "name": "sceIoRead"
+  },
+  "267A6DD2": {
+   "library": "sceSasCore",
+   "name": "__sceSasRevParam"
+  },
+  "33D4AB37": {
+   "library": "sceSasCore",
+   "name": "__sceSasRevType"
+  },
+  "74AE582A": {
+   "library": "sceSasCore",
+   "name": "__sceSasGetEnvelopeHeight"
+  },
+  "B7660A23": {
+   "library": "sceSasCore",
+   "name": "__sceSasSetNoise"
+  },
+  "76F01ACA": {
+   "library": "sceSasCore",
+   "name": "__sceSasSetKeyOn"
+  },
+  "99944089": {
+   "library": "sceSasCore",
+   "name": "__sceSasSetVoice"
+  },
+  "A0CF2FA4": {
+   "library": "sceSasCore",
+   "name": "__sceSasSetKeyOff"
+  },
+  "787D04D5": {
+   "library": "sceSasCore",
+   "name": "__sceSasSetPause"
+  },
+  "50A14DFC": {
+   "library": "sceSasCore",
+   "name": "__sceSasCoreWithMix"
+  },
+  "68A46B95": {
+   "library": "sceSasCore",
+   "name": "__sceSasGetEndFlag"
+  },
+  "A3589D81": {
+   "library": "sceSasCore",
+   "name": "__sceSasCore"
+  },
+  "13F592BC": {
+   "library": "sceAudio",
+   "name": "sceAudioOutputPannedBlocking"
+  },
+  "95FD0C2D": {
+   "library": "sceAudio",
+   "name": "sceAudioChangeChannelConfig"
+  },
+  "B7E1D8E7": {
+   "library": "sceAudio",
+   "name": "sceAudioChangeChannelVolume"
+  },
+  "CB2E439E": {
+   "library": "sceAudio",
+   "name": "sceAudioSetChannelDataLen"
+  },
+  "1FB15A32": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelSetEventFlag"
+  },
+  "090CCB3F": {
+   "library": "sceSuspendForUser",
+   "name": "sceKernelPowerTick"
+  },
+  "616403BA": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelTerminateThread"
+  },
+  "3B183E26": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelGetThreadExitStatus"
+  },
+  "82826F70": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelSleepThreadCB"
+  },
+  "8FFDF9A2": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelCancelSema"
+  },
+  "B6D61D02": {
+   "library": "SysMemUserForUser",
+   "name": "sceKernelFreePartitionMemory"
+  },
+  "9ACE131E": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelSleepThread"
+  },
+  "36CDFADE": {
+   "library": "sceDisplay",
+   "name": "sceDisplayWaitVblank"
+  },
+  "4AC57943": {
+   "library": "LoadExecForUser",
+   "name": "sceKernelRegisterExitCallback"
+  },
+  "809CE29B": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelExitDeleteThread"
+  },
+  "05572A5F": {
+   "library": "LoadExecForUser",
+   "name": "sceKernelExitGame"
+  },
+  "7591C7DB": {
+   "library": "SysMemUserForUser",
+   "name": "sceKernelSetCompiledSdkVersion"
+  },
+  "F77D77CB": {
+   "library": "SysMemUserForUser",
+   "name": "sceKernelSetCompilerVersion"
+  },
+  "D8B73127": {
+   "library": "ModuleMgrForUser",
+   "name": "sceKernelGetModuleIdByAddress"
+  },
+  "52089CA1": {
+   "library": "ThreadManForUser",
+   "name": "sceKernelGetThreadStackFreeSize"
+  },
+  "136CAF51": {
+   "library": "sceAudio",
+   "name": "sceAudioOutputBlocking"
+  }
+ },
  "familles": [
   [
    "System core",
@@ -100,12 +591,12 @@
    0
   ],
   "sceUmdUser": [
-   7,
-   0
+   0,
+   7
   ],
   "sceUtility": [
-   1,
-   19
+   0,
+   20
   ],
   "sceNetAdhocctl": [
    0,
@@ -148,8 +639,8 @@
    10
   ],
   "sceCtrl": [
-   4,
-   1
+   3,
+   2
   ],
   "sceSasCore": [
    17,
@@ -168,24 +659,24 @@
    1
   ],
   "sceDisplay": [
-   6,
-   1
+   3,
+   4
   ],
   "InterruptManager": [
    3,
    0
   ],
   "sceRtc": [
-   1,
-   0
+   0,
+   1
   ],
   "scePsmfPlayer": [
    0,
    14
   ],
   "ModuleMgrForUser": [
-   7,
-   0
+   5,
+   2
   ],
   "StdioForUser": [
    3,
@@ -209,9 +700,18 @@
    "6AD345D7"
   ],
   "sceGe_user": [],
-  "sceUmdUser": [],
+  "sceUmdUser": [
+   "E83742BA",
+   "6B4A146C",
+   "BD2BDE07",
+   "8EF08FCE",
+   "C6183D47",
+   "AEE7404D",
+   "6AF9B50A"
+  ],
   "sceUtility": [
    "4DB1E739",
+   "A5DA2406",
    "1579A159",
    "64D50C56",
    "34B78343",
@@ -297,7 +797,8 @@
    "5E3D4B79"
   ],
   "sceCtrl": [
-   "3A622550"
+   "3A622550",
+   "0B588501"
   ],
   "sceSasCore": [],
   "sceAtrac3plus": [
@@ -318,10 +819,15 @@
    "36AA6E91"
   ],
   "sceDisplay": [
+   "8EB9EC49",
+   "4D4E10EC",
+   "EEDA2E54",
    "984C27E7"
   ],
   "InterruptManager": [],
-  "sceRtc": [],
+  "sceRtc": [
+   "3F7AD767"
+  ],
   "scePsmfPlayer": [
    "F8EF08A6",
    "1078C008",
@@ -338,12 +844,64 @@
    "A0B8CA55",
    "46F61F8B"
   ],
-  "ModuleMgrForUser": [],
+  "ModuleMgrForUser": [
+   "D675EBB8",
+   "977DE386"
+  ],
   "StdioForUser": [],
   "sceMpeg": [
    "682A619B",
    "874624D6"
   ]
  },
- "atteints": []
+ "atteints": [
+  [
+   "ModuleMgrForUser",
+   "977DE386"
+  ],
+  [
+   "sceDisplay",
+   "4D4E10EC"
+  ],
+  [
+   "sceDisplay",
+   "8EB9EC49"
+  ],
+  [
+   "sceDisplay",
+   "EEDA2E54"
+  ],
+  [
+   "sceImpose",
+   "36AA6E91"
+  ],
+  [
+   "sceRtc",
+   "3F7AD767"
+  ],
+  [
+   "sceUmdUser",
+   "6B4A146C"
+  ],
+  [
+   "sceUmdUser",
+   "8EF08FCE"
+  ],
+  [
+   "sceUmdUser",
+   "AEE7404D"
+  ],
+  [
+   "sceUmdUser",
+   "BD2BDE07"
+  ],
+  [
+   "sceUmdUser",
+   "C6183D47"
+  ],
+  [
+   "sceUtility",
+   "A5DA2406"
+  ]
+ ]
 }

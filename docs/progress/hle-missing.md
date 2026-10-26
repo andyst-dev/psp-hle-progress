@@ -1,8 +1,8 @@
 # Missing firmware functions - locoroco
 
-**101 of 236 imported firmware functions have no HLE implementation** (135 are implemented, 57.2%). Names come from pspsdk where it declares the NID; the rest are named elsewhere (PPSSPP `Core/HLE`).
+**116 of 236 imported firmware functions have no registered handler** (120 have a registered handler, 50.8%). Registration is not proof of firmware fidelity. Names come from pspsdk where it declares the NID; other entries remain unnamed in this report.
 
-`*` marks a function the bring-up run **reaches** without an implementation: that makes it the next thing to write, not just a gap in a list.
+`*` marks a missing handler observed in the sampled bring-up log. The log is rate-limited; this is not a complete reachability report or proof of the current blocker.
 
 Regenerate: `tools/hle_coverage.py` (see README).
 
@@ -44,31 +44,7 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | sceWlanDrv | `0x0C622081` | sceWlanGetEtherAddr |
 | sceWlanDrv | `0xD7763699` | sceWlanGetSwitchState |
 
-## Save / utility (19)
-
-| library | NID | function |
-|---|---|---|
-| sceUtility | `0x946963F3` | sceUtilityGameSharingGetStatus |
-| sceUtility | `0xC492F751` | sceUtilityGameSharingInitStart |
-| sceUtility | `0xEFC6F80F` | sceUtilityGameSharingShutdownStart |
-| sceUtility | `0x7853182D` | sceUtilityGameSharingUpdate |
-| sceUtility | `0x34B78343` | sceUtilityGetSystemParamString |
-| sceUtility | `0x1579A159` | sceUtilityLoadNetModule |
-| sceUtility | `0x9A1C91D7` | sceUtilityMsgDialogGetStatus |
-| sceUtility | `0x2AD8E239` | sceUtilityMsgDialogInitStart |
-| sceUtility | `0x67AF3428` | sceUtilityMsgDialogShutdownStart |
-| sceUtility | `0x95FC253B` | sceUtilityMsgDialogUpdate |
-| sceUtility | `0x6332AA39` | sceUtilityNetconfGetStatus |
-| sceUtility | `0x4DB1E739` | sceUtilityNetconfInitStart |
-| sceUtility | `0xF88155F6` | sceUtilityNetconfShutdownStart |
-| sceUtility | `0x91E70E35` | sceUtilityNetconfUpdate |
-| sceUtility | `0x8874DBE0` | sceUtilitySavedataGetStatus |
-| sceUtility | `0x50C4CD57` | sceUtilitySavedataInitStart |
-| sceUtility | `0x9790B33C` | sceUtilitySavedataShutdownStart |
-| sceUtility | `0xD4B95FFB` | sceUtilitySavedataUpdate |
-| sceUtility | `0x64D50C56` | sceUtilityUnloadNetModule |
-
-## Video / UMD (16)
+## Video / UMD (23)
 
 | library | NID | function |
 |---|---|---|
@@ -88,6 +64,38 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | scePsmfPlayer | `0xB9848A74` | (not named in pspsdk) |
 | scePsmfPlayer | `0xA0B8CA55` | (not named in pspsdk) |
 | scePsmfPlayer | `0x46F61F8B` | (not named in pspsdk) |
+| sceUmdUser | `0xC6183D47` | sceUmdActivate * |
+| sceUmdUser | `0x6AF9B50A` | sceUmdCancelWaitDriveStat |
+| sceUmdUser | `0xE83742BA` | sceUmdDeactivate |
+| sceUmdUser | `0x6B4A146C` | sceUmdGetDriveStat * |
+| sceUmdUser | `0xAEE7404D` | sceUmdRegisterUMDCallBack * |
+| sceUmdUser | `0xBD2BDE07` | sceUmdUnRegisterUMDCallBack * |
+| sceUmdUser | `0x8EF08FCE` | sceUmdWaitDriveStat * |
+
+## Save / utility (20)
+
+| library | NID | function |
+|---|---|---|
+| sceUtility | `0x946963F3` | sceUtilityGameSharingGetStatus |
+| sceUtility | `0xC492F751` | sceUtilityGameSharingInitStart |
+| sceUtility | `0xEFC6F80F` | sceUtilityGameSharingShutdownStart |
+| sceUtility | `0x7853182D` | sceUtilityGameSharingUpdate |
+| sceUtility | `0xA5DA2406` | sceUtilityGetSystemParamInt * |
+| sceUtility | `0x34B78343` | sceUtilityGetSystemParamString |
+| sceUtility | `0x1579A159` | sceUtilityLoadNetModule |
+| sceUtility | `0x9A1C91D7` | sceUtilityMsgDialogGetStatus |
+| sceUtility | `0x2AD8E239` | sceUtilityMsgDialogInitStart |
+| sceUtility | `0x67AF3428` | sceUtilityMsgDialogShutdownStart |
+| sceUtility | `0x95FC253B` | sceUtilityMsgDialogUpdate |
+| sceUtility | `0x6332AA39` | sceUtilityNetconfGetStatus |
+| sceUtility | `0x4DB1E739` | sceUtilityNetconfInitStart |
+| sceUtility | `0xF88155F6` | sceUtilityNetconfShutdownStart |
+| sceUtility | `0x91E70E35` | sceUtilityNetconfUpdate |
+| sceUtility | `0x8874DBE0` | sceUtilitySavedataGetStatus |
+| sceUtility | `0x50C4CD57` | sceUtilitySavedataInitStart |
+| sceUtility | `0x9790B33C` | sceUtilitySavedataShutdownStart |
+| sceUtility | `0xD4B95FFB` | sceUtilitySavedataUpdate |
+| sceUtility | `0x64D50C56` | sceUtilityUnloadNetModule |
 
 ## Font (10)
 
@@ -118,16 +126,29 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | sceAtrac3plus | `0x0E2A73AB` | sceAtracSetData |
 | sceAtrac3plus | `0x868120B5` | sceAtracSetLoopNum |
 
-## System core (6)
+## System core (8)
 
 | library | NID | function |
 |---|---|---|
 | LoadExecForUser | `0xBD2F1094` | sceKernelLoadExec |
+| ModuleMgrForUser | `0x977DE386` | sceKernelLoadModule * |
+| ModuleMgrForUser | `0xD675EBB8` | sceKernelSelfStopUnloadModule |
 | ThreadManForUser | `0x8125221D` | sceKernelCreateMbx |
 | ThreadManForUser | `0x86255ADA` | sceKernelDeleteMbx |
 | ThreadManForUser | `0x0D81716A` | sceKernelPollMbx |
 | ThreadManForUser | `0xE9B3061E` | sceKernelSendMbx |
 | UtilsForUser | `0x6AD345D7` | sceKernelSetGPO |
+
+## Input / display / GE (6)
+
+| library | NID | function |
+|---|---|---|
+| sceCtrl | `0x3A622550` | sceCtrlPeekBufferPositive |
+| sceCtrl | `0x0B588501` | sceCtrlReadLatch |
+| sceDisplay | `0xEEDA2E54` | sceDisplayGetFrameBuf * |
+| sceDisplay | `0x4D4E10EC` | sceDisplayIsVblank * |
+| sceDisplay | `0x8EB9EC49` | sceDisplayWaitVblankCB * |
+| sceDisplay | `0x984C27E7` | sceDisplayWaitVblankStart |
 
 ## Files (5)
 
@@ -139,15 +160,9 @@ Regenerate: `tools/hle_coverage.py` (see README).
 | IoFileMgrForUser | `0x06A70004` | sceIoMkdir |
 | IoFileMgrForUser | `0xF27A9C51` | sceIoRemove |
 
-## Input / display / GE (2)
+## Misc (2)
 
 | library | NID | function |
 |---|---|---|
-| sceCtrl | `0x3A622550` | sceCtrlPeekBufferPositive |
-| sceDisplay | `0x984C27E7` | sceDisplayWaitVblankStart |
-
-## Misc (1)
-
-| library | NID | function |
-|---|---|---|
-| sceImpose | `0x36AA6E91` | sceImposeSetLanguageMode |
+| sceImpose | `0x36AA6E91` | sceImposeSetLanguageMode * |
+| sceRtc | `0x3F7AD767` | sceRtcGetCurrentTick * |

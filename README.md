@@ -1,102 +1,124 @@
-# PSP firmware HLE coverage
+# PSP firmware HLE availability
 
-How much of the firmware a statically recompiled PSP game actually needs, and how
-much of it exists yet. Reference title: **LocoRoco** (UCES00304), brought up with
+Measured firmware entry-point coverage for **LocoRoco (UCES00304)** using
 [sp00nznet/psprecomp](https://github.com/sp00nznet/psprecomp).
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/hle-coverage-dark.png">
-  <img alt="Firmware HLE coverage: 117 of 236 imported firmware functions implemented, area proportional to imports"
-       src="docs/progress/hle-coverage.png">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/hle-coverage-dark.394d55b25600.png">
+  <img alt="Upstream main: 120 of 236 imported firmware entry points have a registered HLE handler"
+       src="docs/progress/hle-coverage.14d8c9d34e49.png">
 </picture>
 
-<sub>[vector versions](docs/progress/hle-coverage.svg) &#183; regenerate with `tools/update.sh`</sub>
+<sub>[Light vector](docs/progress/hle-coverage.svg) | [Dark vector](docs/progress/hle-coverage-dark.svg) | Regenerate with `tools/update.sh`</sub>
 
-A PSP game never touches hardware. It calls firmware entry points through its
-import table, and each of those calls is identified by a NID. So "what is still
-missing?" is a bounded, countable question: the module imports **236** firmware
-functions, and **117** of them are implemented. The picture is that count,
-one tile per library, area proportional to the number of imports.
+## What this measures
+
+**A registered handler is not a fully implemented PSP service.** This is a count
+of the game's imported NIDs found in the runtime dispatch registry. Minimal
+handlers and no-op placeholders count too. It does not measure gameplay
+completion, firmware fidelity, rendering accuracy, working audio or frame rate.
+The goal is to locate missing entry points, not claim a percentage of the game
+has been ported.
+
+| Snapshot | Registered / imported | Availability | Without a handler |
+|---|---:|---:|---:|
+| Upstream main (`5ca18fa`) | 120/236 | 50.8% | 116 |
+| Local integration (pending PRs) (`cb43d7a`) | 122/236 | 51.7% | 114 |
+
+The picture uses the **upstream main snapshot**, pinned to
+[`5ca18fa`](https://github.com/sp00nznet/psprecomp/commit/5ca18fac1691a4a7b40ae683dabdf72a5703d2b8).
+The local integration is a separate experimental snapshot with unmerged work;
+it is not presented as functionality already available on upstream main.
+The older README's 117 and data snapshot's 135 were inconsistent. Both have
+been replaced by fresh registry measurements with explicit source revisions;
+those older figures are not the current upstream baseline.
 
 ## Reading the picture
 
-| | |
-|---|---|
-| **green** | implemented |
-| **red** | no implementation yet |
-| **ring** | the bring-up run *reaches* this function and gets nothing back: it is the next thing to write, not just a gap in a list |
+- **Green:** imported NID has a registered handler.
+- **Red:** no registered handler.
+- **Ring:** a missing handler observed in the sampled native-run log.
+- Areas are weighted by imports at the family level and within each family.
 
-The ring matters because a missing function is not equally costly everywhere. An
-unimplemented import returns `0` today, and `0` is a legitimate answer for an
-identifier, a size or a pointer, so the game takes a branch it never takes on
-hardware and fails far away from the cause. The ring marks the five functions the
-run already hits:
+The log identifies **12 distinct missing imported entry points** from
+local integration `cb43d7a`, not an upstream-only gameplay run.
+Logging is rate-limited and the final busiest-call list is truncated, so this
+is a lower bound, not complete reachability analysis. A ring does not establish
+that a function causes the current menu-transition problem.
 
-| NID | library | function |
-|---|---|---|
-| `0x6B4A146C` | sceUmdUser | `sceUmdGetDriveStat` |
-| `0x8EF08FCE` | sceUmdUser | `sceUmdWaitDriveStat` |
-| `0xC6183D47` | sceUmdUser | `sceUmdActivate` |
-| `0xAEE7404D` | sceUmdUser | `sceUmdRegisterUMDCallBack` |
-| `0x3F7AD767` | sceRtc | `sceRtcGetCurrentTick` |
+| Family | Upstream registered | Local registered | Imported |
+|---|---:|---:|---:|
+| System core | 69 | 69 | 77 |
+| Audio | 25 | 25 | 34 |
+| Network | 0 | 0 | 33 |
+| Video / UMD | 0 | 0 | 23 |
+| Input / display / GE | 15 | 16 | 21 |
+| Save / utility | 0 | 0 | 20 |
+| Files | 9 | 10 | 14 |
+| Font | 0 | 0 | 10 |
+| Misc | 2 | 2 | 4 |
 
-Read together: the game asks whether a disc is present and spinning, and reads
-the clock at start-up. Ordinary PSP start-up code, and the next work item.
+Named missing lists: [upstream](docs/progress/hle-missing.md) and
+[local integration](docs/progress/hle-missing-locoroco-bringup.md).
 
-## Where the gaps are
+## What the pending integration adds
 
-| family | covered | total |
-|---|---|---|
-| System core | 68 | 77 |
-| Audio | 25 | 34 |
-| Input / display / GE | 15 | 21 |
-| Files | 9 | 14 |
-| Video / UMD | 0 | 23 |
-| Network | 0 | 33 |
-| Save / utility (`sceUtility`) | 0 | 20 |
-| Font (`sceLibFont`) | 0 | 10 |
-| Misc (`sceRtc`, `scePower`, `sceImpose`) | 0 | 4 |
+Additional imported handlers in the local registry:
 
-The full list, named, is [docs/progress/hle-missing.md](docs/progress/hle-missing.md).
+- `sceCtrlReadLatch` (`0x0B588501`, `sceCtrl`).
+- `sceIoGetstat` (`0xACE946E8`, `IoFileMgrForUser`).
 
-## How the numbers are produced
+`PeekLatch` is also registered locally, but is not imported by this module, so
+it does not increase this metric. Emitter and stack fixes do not add firmware
+entry points and therefore do not increase it either.
 
-Three steps, no game data involved at any point. From a checkout of the toolkit
-with its library built:
+Related contributions (open when these snapshots were measured): [#28](https://github.com/sp00nznet/psprecomp/pull/28)
+(empty paths), [#29](https://github.com/sp00nznet/psprecomp/pull/29) (Getstat),
+[#30](https://github.com/sp00nznet/psprecomp/pull/30) (controller latch),
+[#31](https://github.com/sp00nznet/psprecomp/pull/31) (JALR continuation) and
+[#32](https://github.com/sp00nznet/psprecomp/pull/32) (guest-call frame isolation).
+They are not merged in the pinned main snapshot. See the
+[technical status](docs/locoroco-status.md) for measured runtime progress and
+remaining limits.
+
+## Reproduce
+
+The reports are generated from actual toolkit registries, not a handwritten
+list of implemented APIs. Public JSON snapshots are enough to redraw the
+images and README without game data:
 
 ```sh
-# 1. what the toolkit already implements
-clang -O0 -I <psprecomp>/include tools/hle_dump.c <psprecomp>/build/libpsprecomp.a -o /tmp/hle_dump
-/tmp/hle_dump > hle.txt
-
-# 2. what the module needs  (the C the toolkit emits for its import thunks)
-<psprecomp>/build/tools/allegrexrecomp/allegrexrecomp emit <module.elf> /tmp/emit <name>
-
-# 3. cross them, name what is missing, and draw it
-python3 tools/hle_coverage.py /tmp/emit/<name>_imports.c hle.txt \
-    --pspsdk <pspsdk> --module <name> --outdir .
-python3 tools/hle_treemap.py data/<name>-hle-cov.json docs/progress/hle-coverage.svg
+python3 tools/hle_treemap.py data/locoroco-hle-cov.json docs/progress/hle-coverage.svg
+python3 tools/hle_treemap.py data/locoroco-hle-cov.json docs/progress/hle-coverage-dark.svg --dark
+rsvg-convert -w 1800 -b white -o docs/progress/hle-coverage.png docs/progress/hle-coverage.svg
+rsvg-convert -w 1800 -b '#0d1117' -o docs/progress/hle-coverage-dark.png docs/progress/hle-coverage-dark.svg
+python3 tools/update_readme.py
+python3 -m unittest discover -s tests -v
 ```
 
-`--reached` takes the NIDs the run reported as unimplemented, which is what puts
-the rings on the picture; `data/*.json` is the snapshot the SVG is drawn from, so
-the picture can be regenerated without the game at all.
+To measure a checkout again, use a privately supplied decrypted executable and
+an optional PSPSDK checkout. `tools/update.sh` builds the selected toolkit,
+dumps its real registry, emits the import list in a temporary directory, and
+regenerates the primary snapshot and pictures. Set `PSPRECOMP_BUILD_DIR` for a
+build outside the checkout and `PSPRECOMP_COVERAGE_LABEL` to name its basis.
+Set `PSPRECOMP_OBSERVED_SOURCE` to identify the runtime behind the sampled log.
+The comparison snapshot remains explicitly separate.
 
-To update it as work lands: re-run step 3 and commit the new SVG and list.
+```sh
+tools/update.sh <psprecomp> <module.elf> locoroco <pspsdk> <observed-missing-NIDs>
+```
 
-## What is not here, on purpose
+## What is not published
 
-No ROM, no decrypted executable, no disassembly and no generated C: those are
-derived from the game and are not redistributed. What is published is a count of
-firmware entry points, their NIDs and the names `pspsdk` gives them - public
-identifiers of a documented API, not content of the game.
+No ROM, decrypted executable, retail-generated C, disassembly, memory dump,
+save or game asset. The data here contains public firmware API identifiers,
+registry counts and measurement provenance only. Image URLs include a content
+hash so README updates do not keep serving an old cached picture; stable image
+paths remain available too.
 
 ## Credits
 
-- Toolkit: [sp00nznet/psprecomp](https://github.com/sp00nznet/psprecomp) (MIT), which
-  reports the import surface and provides the HLE registry these counts read.
-- Function names: [pspsdk](https://github.com/pspdev/pspsdk) (BSD-3-Clause).
-- The `.sym` symbol maps PPSSPP can export are the other source for names of
-  firmware libraries pspsdk does not declare.
+- [psprecomp](https://github.com/sp00nznet/psprecomp) (MIT): import discovery and HLE registry.
+- [PSPSDK](https://github.com/pspdev/pspsdk) (BSD-3-Clause): firmware function names.
 
 Tooling here is MIT (see `LICENSE`).

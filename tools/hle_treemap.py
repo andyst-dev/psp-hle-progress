@@ -18,6 +18,7 @@ legend at the bottom supplies. A tile marked as reached-by-the-run reserves a
 band on the right for the ring, so the marker never lands on a word.
 """
 import json, os, sys
+from html import escape
 import xml.etree.ElementTree as ET
 
 VERT, ROUGE, MARQUE = "#1f9d55", "#b3402f", "#111827"
@@ -88,6 +89,14 @@ def build(d, w, h, fs=1.0, theme="light"):
     fam, cov, atteints = d["familles"], d["cov"], d["atteints"]
     tot_c = sum(v[0] for v in cov.values()); tot = sum(sum(v) for v in cov.values())
     pct = 100.0 * tot_c / tot
+    source = d.get("source", {})
+    label = source.get("label", "Measured checkout")
+    revision = source.get("revision")
+    basis = escape(label + (" " + revision[:7] if revision else ""))
+    observed = len(atteints)
+    ring_summary = f"{observed} observed missing import" + ("s" if observed != 1 else "")
+    run_revision = d.get("observations", {}).get("runtime_revision")
+    if run_revision: ring_summary += " from " + escape(run_revision[:7])
     # Les deux premieres palettes sont celles de GitHub, pour que l'image se fonde
     # dans la page qui l'affiche : un README porte le fond #ffffff en theme clair
     # et #0d1117 en theme sombre, et sert la bonne version par <picture>.
@@ -101,25 +110,25 @@ def build(d, w, h, fs=1.0, theme="light"):
         BG, FG, SUB = "none", "var(--foreground)", "var(--muted-foreground)"
         TUILE, bord, vide, sep = "var(--card)", "var(--border)", "var(--accent)", "var(--border)"
         txt_dark, txt_light = "var(--foreground)", "#ffffff"
-    M = 26 * fs; TOP = 118 * fs; LEG = 150 * fs
+    M = 26 * fs; TOP = 118 * fs; LEG = 166 * fs
     F = lambda n: n * fs
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.0f} {h:.0f}" width="{w:.0f}" height="{h:.0f}" '
          f'font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Inter,Helvetica,sans-serif">']
     if BG != "none": o.append(f'<rect width="{w:.0f}" height="{h:.0f}" fill="{BG}"/>')
     # header
     o.append(f'<text x="{M:.0f}" y="{46*fs:.0f}" font-size="{F(23):.1f}" font-weight="700" fill="{FG}" '
-             f'letter-spacing="-0.4">LocoRoco firmware HLE coverage</text>')
+             f'letter-spacing="-0.4">LocoRoco HLE handler availability</text>')
     o.append(f'<text x="{M:.0f}" y="{68*fs:.0f}" font-size="{F(12.5):.1f}" fill="{SUB}">'
-             f'UCES00304 &#183; {tot} imported firmware functions &#183; tile area = number of imports</text>')
+             f'UCES00304 &#183; {basis} &#183; {tot} imports &#183; area = imports</text>')
     o.append(f'<text x="{w-M:.0f}" y="{52*fs:.0f}" font-size="{F(34):.1f}" font-weight="700" fill="{FG}" '
              f'text-anchor="end" letter-spacing="-1">{tot_c}<tspan font-size="{F(20):.1f}" fill="{SUB}">/{tot}</tspan></text>')
     o.append(f'<text x="{w-M:.0f}" y="{72*fs:.0f}" font-size="{F(12.5):.1f}" fill="{SUB}" '
-             f'text-anchor="end">{pct:.1f}% implemented &#183; {tot-tot_c} functions to write</text>')
+             f'text-anchor="end">{pct:.1f}% registered &#183; {tot-tot_c} without a handler</text>')
     o.append(f'<line x1="{M:.0f}" y1="{88*fs:.0f}" x2="{w-M:.0f}" y2="{88*fs:.0f}" stroke="{sep}" stroke-width="1"/>')
     o.append(f'<text x="{M:.0f}" y="{106*fs:.0f}" font-size="{F(11.5):.1f}" fill="{SUB}">'
-             f'green = implemented &#160;|&#160; red = missing &#160;|&#160; '
-             f'<tspan font-weight="600">ring</tspan> = reached by the bring-up run with no implementation '
-             f'(sceUmdUser x4, sceRtc x1)</text>')
+             f'green = registered &#160;|&#160; red = no handler &#160;|&#160; '
+             f'<tspan font-weight="600">ring</tspan> = missing handler seen in the sampled run '
+             f'({ring_summary})</text>')
     # treemap
     fams = [(FAM_EN.get(n, n), [l for l in ls if l in cov]) for n, ls in fam]
     fams = [(n, ls) for n, ls in fams if ls]
@@ -201,7 +210,7 @@ def build(d, w, h, fs=1.0, theme="light"):
     ly0 = h - LEG + 12 * fs
     o.append(f'<line x1="{M:.0f}" y1="{ly0-14*fs:.0f}" x2="{w-M:.0f}" y2="{ly0-14*fs:.0f}" stroke="{sep}" stroke-width="1"/>')
     o.append(f'<text x="{M:.0f}" y="{ly0:.0f}" font-size="{F(11):.1f}" font-weight="650" fill="{SUB}" '
-             f'letter-spacing="0.4">LIBRARIES - COVERED / IMPORTED</text>')
+             f'letter-spacing="0.4">LIBRARIES - REGISTERED / IMPORTED</text>')
     cols = 4 if w > 1000 else 3
     cw = (w - 2 * M) / cols
     rows = (len(legend) + cols - 1) // cols
@@ -210,10 +219,10 @@ def build(d, w, h, fs=1.0, theme="light"):
         cy = ly0 + 20 * fs + (i % rows) * 17 * fs
         dot = VERT if c2 == t2 else (ROUGE if c2 == 0 else "#c9a227")
         o.append(f'<circle cx="{cx+4:.1f}" cy="{cy-4:.1f}" r="4" fill="{dot}"/>')
-        idx = f"{numeros[lib]} " if lib in numeros else ""
+        idx = f"[{numeros[lib]}]&#160;" if lib in numeros else ""
         o.append(f'<text x="{cx+15:.1f}" y="{cy:.1f}" font-size="{F(10.5):.1f}" fill="{FG}">'
                  f'<tspan fill="{SUB}">{idx}</tspan>{short}'
-                 f'<tspan fill="{SUB}">  {c2}/{t2}</tspan></text>')
+                 f'<tspan fill="{SUB}">&#160;{c2}/{t2}</tspan></text>')
     o.append('</svg>')
     texte = "\n".join(o)
     # Un SVG est du XML : une entite HTML (`&nbsp;`, `&middot;`) le rend
